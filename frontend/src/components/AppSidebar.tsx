@@ -100,7 +100,7 @@ function YoutubeBadge({ collapsed }: { collapsed?: boolean }) {
       rel="noopener noreferrer"
       className={`sider-version${collapsed ? ' is-collapsed' : ''}`}
       aria-label="YouTube"
-      title="YouTube · @zhanzhang3yue"
+      title="YouTube · @heiyukeji"
     >
       <YoutubeOutlined />
       {!collapsed && <span className="sider-version-text">YouTube</span>}
