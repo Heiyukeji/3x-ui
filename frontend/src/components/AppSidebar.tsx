@@ -84,7 +84,7 @@ function SiteBadge({ collapsed }: { collapsed?: boolean }) {
       rel="noopener noreferrer"
       className={`sider-version${collapsed ? ' is-collapsed' : ''}`}
       aria-label="hy.hy88.de.com"
-      title="站长博客 · hy.hy88.de.com"
+      title="站长博客 · hy.hy88.de"
     >
       <GlobalOutlined />
       {!collapsed && <span className="sider-version-text">站长博客</span>}
