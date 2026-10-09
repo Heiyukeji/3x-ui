@@ -121,7 +121,7 @@ export default function IndexPage() {
     if (panelUpdateInfo.updateAvailable) {
       setPanelUpdateOpen(true);
     } else {
-      window.open('https://github.com/Teminuosi/3x-ui/releases', '_blank', 'noopener,noreferrer');
+      window.open('https://github.com/Heiyukeji/3x-ui/releases', '_blank', 'noopener,noreferrer');
     }
   }
 
