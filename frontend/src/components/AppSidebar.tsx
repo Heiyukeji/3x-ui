@@ -83,8 +83,8 @@ function SiteBadge({ collapsed }: { collapsed?: boolean }) {
       target="_blank"
       rel="noopener noreferrer"
       className={`sider-version${collapsed ? ' is-collapsed' : ''}`}
-      aria-label="3yuedaohang.com"
-      title="站长博客 · 3yuedaohang.com"
+      aria-label="hy.hy88.de.com"
+      title="站长博客 · hy.hy88.de.com"
     >
       <GlobalOutlined />
       {!collapsed && <span className="sider-version-text">站长博客</span>}
