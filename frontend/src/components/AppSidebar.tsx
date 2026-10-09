@@ -116,7 +116,7 @@ function VpsBadge({ collapsed }: { collapsed?: boolean }) {
       rel="noopener noreferrer"
       className={`sider-version${collapsed ? ' is-collapsed' : ''}`}
       aria-label="机器推荐"
-      title="机器推荐 · CN2 / 搬瓦工"
+      title="机器推荐 · 新区云 / 搬瓦工"
     >
       <CloudServerOutlined />
       {!collapsed && <span className="sider-version-text">机器推荐</span>}
