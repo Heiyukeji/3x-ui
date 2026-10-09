@@ -5,8 +5,8 @@
   </picture>
 </p>
 
-[![Release](https://img.shields.io/github/v/release/Teminuosi/3x-ui.svg)](https://github.com/Teminuosi/3x-ui/releases)
-[![Build](https://img.shields.io/github/actions/workflow/status/Teminuosi/3x-ui/release.yml.svg)](https://github.com/Teminuosi/3x-ui/actions)
+[![Release](https://img.shields.io/github/v/release/Heiyukeji/3x-ui.svg)](https://github.com/Heiyukeji/3x-ui/releases)
+[![Build](https://img.shields.io/github/actions/workflow/status/Heiyukeji/3x-ui/release.yml.svg)](https://github.com/Heiyukeji/3x-ui/actions)
 [![License](https://img.shields.io/badge/license-GPL%20V3-blue.svg?longCache=true)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 > 🌐 **官网 / 导航站**：https://hy.hy88.de
@@ -32,10 +32,10 @@
 
 ```bash
 # 方式一：带域名 —— 自动申请 SSL 证书并把证书配到面板，其余全部用默认值
-XUI_DOMAIN=panel.example.com bash <(curl -Ls https://raw.githubusercontent.com/Teminuosi/3x-ui/main/install.sh)
+XUI_DOMAIN=panel.example.com bash <(curl -Ls https://raw.githubusercontent.com/Heiyukeji/3x-ui/main/install.sh)
 
 # 方式二：不带域名 —— 全部用默认值、随机端口，不申请证书
-XUI_AUTO=1 bash <(curl -Ls https://raw.githubusercontent.com/Teminuosi/3x-ui/main/install.sh)
+XUI_AUTO=1 bash <(curl -Ls https://raw.githubusercontent.com/Heiyukeji/3x-ui/main/install.sh)
 ```
 
 装完后，在服务器上输入 `x-ui` 即可打开管理菜单（重启面板、查看账号、改端口、更新/卸载等）。
