@@ -43,7 +43,7 @@ XUI_AUTO=1 bash <(curl -Ls https://raw.githubusercontent.com/Heiyukeji/3x-ui/mai
 > - **域名要写在 `XUI_DOMAIN`，不是 `XUI_AUTO`。** 写反了脚本会当成没开自动模式、退回交互式（现在会自动纠正并提示，但别指望它）。
 > - 设了 `XUI_DOMAIN` 会自动开启全自动模式。若你的 shell 下行内变量没生效，可以先下载再执行：
 >   ```bash
->   curl -Ls https://raw.githubusercontent.com/Teminuosi/3x-ui/main/install.sh -o /tmp/i.sh
+>   curl -Ls https://raw.githubusercontent.com/Heiyukeji/3x-ui/main/install.sh -o /tmp/i.sh
 >   XUI_DOMAIN=panel.example.com bash /tmp/i.sh
 >   ```
 > - 想自己一步步选（端口、SSL 方式等），去掉环境变量直接运行同一条命令即可进入交互式安装。
@@ -61,7 +61,7 @@ x-ui            # 打开管理菜单，菜单里有"更新""卸载"等选项
 这种情况直接用下面这条**彻底清除**命令，它不依赖任何已安装的文件：
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/Teminuosi/3x-ui/main/install.sh) purge
+bash <(curl -Ls https://raw.githubusercontent.com/Heiyukeji/3x-ui/main/install.sh) purge
 ```
 
 它会清掉：systemd 服务、`/etc/x-ui/`（含数据库）、`/usr/local/x-ui/`、
