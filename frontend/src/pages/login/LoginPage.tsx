@@ -241,12 +241,12 @@ export default function LoginPage() {
                   </Form.Item>
                 </Form>
                 <a
-                  href="https://hy.hy88.de"
+                  href="https://88.hy88.de"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ display: 'block', textAlign: 'center', marginTop: 12, fontSize: 13, opacity: 0.85 }}
                 >
-                  🌐 站长博客 · hy.hy88.de
+                  🌐 站长博客 · 88.hy88.de
                 </a>
                 <a
                   href="https://www.youtube.com/@heiyukeji"
@@ -257,7 +257,7 @@ export default function LoginPage() {
                   📺 YouTube · @heiyukeji
                 </a>
                 <a
-                  href="https://hy.hy88.de"
+                  href="https://88.hy88.de"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ display: 'block', textAlign: 'center', marginTop: 6, fontSize: 13, opacity: 0.85 }}
