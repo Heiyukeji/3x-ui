@@ -145,7 +145,7 @@ update_menu() {
         return 0
     fi
 
-    curl -fLRo /usr/bin/x-ui https://raw.githubusercontent.com/Heiyukeji/3x-ui/main/x-ui.sh
+    curl -fLRo --proto '=https' --tlsv1.2 /usr/bin/x-ui https://raw.githubusercontent.com/Heiyukeji/3x-ui/main/x-ui.sh
     chmod +x ${xui_folder}/x-ui.sh
     chmod +x /usr/bin/x-ui
 
@@ -682,7 +682,7 @@ enable_bbr() {
 }
 
 update_shell() {
-    curl -fLRo /usr/bin/x-ui -z /usr/bin/x-ui https://github.com/Heiyukeji/3x-ui/raw/main/x-ui.sh
+    curl -fLRo --proto '=https' --tlsv1.2 /usr/bin/x-ui -z /usr/bin/x-ui https://github.com/Heiyukeji/3x-ui/raw/main/x-ui.sh
     if [[ $? != 0 ]]; then
         echo ""
         LOGE "Failed to download script, Please check whether the machine can connect Github"
@@ -1079,8 +1079,11 @@ install_acme() {
     LOGI "Installing acme.sh..."
     cd ~ || return 1 # Ensure you can change to the home directory
 
-    curl -s https://get.acme.sh | sh
-    if [ $? -ne 0 ]; then
+    # 先落盘再执行,强制 HTTPS 防降级
+    curl -s --proto '=https' --tlsv1.2 https://get.acme.sh -o /tmp/get-acme.sh && sh /tmp/get-acme.sh
+    local acme_rc=$?
+    rm -f /tmp/get-acme.sh
+    if [ $acme_rc -ne 0 ]; then
         LOGE "Installation of acme.sh failed."
         return 1
     else
@@ -1786,7 +1789,7 @@ run_speedtest() {
                 return 1
             else
                 echo "Installing Speedtest using $pkg_manager..."
-                curl -s $speedtest_install_script | bash
+                curl -s --proto '=https' --tlsv1.2 $speedtest_install_script | bash
                 $pkg_manager install -y speedtest
             fi
         fi
