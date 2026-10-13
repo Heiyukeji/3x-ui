@@ -119,7 +119,7 @@ export const INBOUND_PRESETS: readonly InboundPreset[] = [
       settings.clients = [createDefaultVlessClient({ flow: 'xtls-rprx-vision' })];
       return {
         protocol: 'vless',
-        port: randomPort(),
+        port: 443
         settings,
         streamSettings: realityStream('tcp'),
       };
