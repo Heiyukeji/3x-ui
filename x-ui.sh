@@ -145,7 +145,7 @@ update_menu() {
         return 0
     fi
 
-    curl -fLRo --proto '=https' --tlsv1.2 /usr/bin/x-ui https://raw.githubusercontent.com/Heiyukeji/3x-ui/main/x-ui.sh
+    curl --proto '=https' --tlsv1.2 -fLRo /usr/bin/x-ui https://raw.githubusercontent.com/Heiyukeji/3x-ui/main/x-ui.sh
     chmod +x ${xui_folder}/x-ui.sh
     chmod +x /usr/bin/x-ui
 
@@ -682,7 +682,7 @@ enable_bbr() {
 }
 
 update_shell() {
-    curl -fLRo --proto '=https' --tlsv1.2 /usr/bin/x-ui -z /usr/bin/x-ui https://github.com/Heiyukeji/3x-ui/raw/main/x-ui.sh
+    curl --proto '=https' --tlsv1.2 -fLRo /usr/bin/x-ui -z /usr/bin/x-ui https://github.com/Heiyukeji/3x-ui/raw/main/x-ui.sh
     if [[ $? != 0 ]]; then
         echo ""
         LOGE "Failed to download script, Please check whether the machine can connect Github"
