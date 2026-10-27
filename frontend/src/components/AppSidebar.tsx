@@ -30,10 +30,10 @@ import { pauseAnimationsUntilLeave, useTheme } from '@/hooks/useTheme';
 import './AppSidebar.css';
 
 const SIDEBAR_COLLAPSED_KEY = 'isSidebarCollapsed';
-const REPO_URL = 'https://github.com/Teminuosi/3x-ui';
+const REPO_URL = 'https://github.com/Heiyukeji/3x-ui';
 const SITE_URL = 'https://88.hy88.de';
-const YT_URL = 'https://www.youtube.com/@zhanzhang3yue';
-const VPS_URL = 'https://88.hy88.de/cn2/banwagong';
+const YT_URL = 'https://www.youtube.com/@heiyukeji';
+const VPS_URL = 'https://88.hy88.de';
 const LOGOUT_KEY = '__logout__';
 
 type IconName = 'dashboard' | 'inbound' | 'team' | 'groups' | 'setting' | 'tool' | 'cluster' | 'logout' | 'apidocs';
@@ -83,8 +83,8 @@ function SiteBadge({ collapsed }: { collapsed?: boolean }) {
       target="_blank"
       rel="noopener noreferrer"
       className={`sider-version${collapsed ? ' is-collapsed' : ''}`}
-      aria-label="3yuedaohang.com"
-      title="站长博客 · 3yuedaohang.com"
+      aria-label="88.hy88.de"
+      title="站长博客 · 88.hy88.de"
     >
       <GlobalOutlined />
       {!collapsed && <span className="sider-version-text">站长博客</span>}
@@ -100,7 +100,7 @@ function YoutubeBadge({ collapsed }: { collapsed?: boolean }) {
       rel="noopener noreferrer"
       className={`sider-version${collapsed ? ' is-collapsed' : ''}`}
       aria-label="YouTube"
-      title="YouTube · @zhanzhang3yue"
+      title="YouTube · @heiyukeji"
     >
       <YoutubeOutlined />
       {!collapsed && <span className="sider-version-text">YouTube</span>}
@@ -116,7 +116,7 @@ function VpsBadge({ collapsed }: { collapsed?: boolean }) {
       rel="noopener noreferrer"
       className={`sider-version${collapsed ? ' is-collapsed' : ''}`}
       aria-label="机器推荐"
-      title="机器推荐 · CN2 / 搬瓦工"
+      title="机器推荐 · 新区云 / 搬瓦工"
     >
       <CloudServerOutlined />
       {!collapsed && <span className="sider-version-text">机器推荐</span>}
