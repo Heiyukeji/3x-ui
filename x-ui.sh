@@ -159,17 +159,19 @@ update_menu() {
 }
 
 legacy_version() {
-    echo -n "Enter the panel version (like 3.1.0-qs14):"
+    echo -n "Enter the panel version (like v3.2.15):"
     read -r tag_version
 
     if [ -z "$tag_version" ]; then
         echo "Panel version cannot be empty. Exiting."
         exit 1
     fi
+    # Accept both "v3.2.15" and "3.2.15"; the URL below adds the leading v.
+    tag_version="${tag_version#v}"
     # Use the entered panel version in the download link
     install_command="bash <(curl -Ls "https://raw.githubusercontent.com/Teminuosi/3x-ui/v$tag_version/install.sh") v$tag_version"
 
-    echo "Downloading and installing panel version $tag_version..."
+    echo "Downloading and installing panel version v$tag_version..."
     eval $install_command
 }
 
