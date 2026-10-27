@@ -249,7 +249,7 @@ export default function LoginPage() {
                   🌐 站长博客 · 88.hy88.de
                 </a>
                 <a
-                  href="https://www.youtube.com/@zhanzhang3yue"
+                  href="https://www.youtube.com/@heiyukeji"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ display: 'block', textAlign: 'center', marginTop: 6, fontSize: 13, opacity: 0.85 }}
