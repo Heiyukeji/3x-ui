@@ -51,14 +51,15 @@ describe('inbound presets', () => {
     expect(stream.tlsSettings.serverName).toBe('my.host.example');
   });
 
-  it('vision preset uses xtls-rprx-vision flow, grpc preset does not', () => {
+  it('non-TCP reality presets leave the VLESS flow empty', () => {
     const vision = getPreset('vless-reality-vision')!.build().settings as {
       clients: { flow: string }[];
     };
     const grpc = getPreset('vless-reality-grpc')!.build().settings as {
       clients: { flow: string }[];
     };
-    expect(vision.clients[0].flow).toBe('xtls-rprx-vision');
+    // Vision 流控只有 TCP 传输承载得了；XHTTP/gRPC 预设的 flow 必须留空。
+    expect(vision.clients[0].flow).toBe('');
     expect(grpc.clients[0].flow).toBe('');
   });
 
