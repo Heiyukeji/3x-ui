@@ -622,6 +622,10 @@ export default function InboundFormModal({
     if (preset.needsRealityKeys) {
       await genRealityKeypair();
     }
+    // VLESS 预设：自动点击"X25519 认证"生成按钮，把解密/加密配对自动填好。
+    if (row.protocol === Protocols.VLESS) {
+      await getNewVlessEnc('x25519');
+    }
     if (preset.needsDomain) {
       // Auto-fill cert + domain from the panel's own TLS config. If the panel
       // has a cert, the preset becomes truly one-click; the domain box stays
@@ -3422,8 +3426,12 @@ export default function InboundFormModal({
                     const rec = INBOUND_PRESETS.find((p) => p.recommended) ?? INBOUND_PRESETS[0];
                     if (rec) void applyPreset(rec);
                   } else {
-                    // Manual mode — no preset implied.
+                    // Manual mode — no preset implied. Reset to plain defaults
+                    // so the tabs start clean instead of carrying the preset's
+                    // values (path, keys, reality fields) into manual setup.
                     setSelectedPresetId(null);
+                    form.resetFields();
+                    form.setFieldsValue(buildAddModeValues());
                   }
                 }}
               />
