@@ -16,6 +16,7 @@ import {
   HysteriaStreamSettingsSchema,
   TcpStreamSettingsSchema,
   WsStreamSettingsSchema,
+  XHttpStreamSettingsSchema,
 } from '@/schemas/protocols/stream';
 import { RandomUtil } from '@/utils';
 
@@ -63,7 +64,7 @@ function csvToList(value: string): string[] {
 // A Reality stream block seeded with a random camouflage target, fresh
 // shortIds, and an empty key pair. The modal fills privateKey/publicKey after
 // fetching them from the panel.
-function realityStream(network: 'tcp' | 'grpc'): Record<string, unknown> {
+function realityStream(network: 'tcp' | 'grpc' | 'xhttp'): Record<string, unknown> {
   const tgt = getRandomRealityTarget();
   const reality = RealityStreamSettingsSchema.parse({}) as Record<string, unknown>;
   reality.target = tgt.target;
@@ -73,8 +74,10 @@ function realityStream(network: 'tcp' | 'grpc'): Record<string, unknown> {
   const stream: Record<string, unknown> = { network, security: 'reality', realitySettings: reality };
   if (network === 'tcp') {
     stream.tcpSettings = TcpStreamSettingsSchema.parse({ header: { type: 'none' } });
-  } else {
+  } else if (network === 'grpc') {
     stream.grpcSettings = GrpcStreamSettingsSchema.parse({ serviceName: RandomUtil.randomLowerAndNum(8) });
+  } else {
+    stream.xhttpSettings = XHttpStreamSettingsSchema.parse({ path: '/heiyukeji' });
   }
   return stream;
 }
@@ -116,12 +119,13 @@ export const INBOUND_PRESETS: readonly InboundPreset[] = [
     needsDomain: false,
     build: () => {
       const settings = createDefaultVlessInboundSettings();
-      settings.clients = [createDefaultVlessClient({ flow: 'xtls-rprx-vision' })];
+      // XHTTP 传输承载不了 Vision 流控（仅 TCP 支持），流控留空。
+      settings.clients = [createDefaultVlessClient({ flow: '' })];
       return {
         protocol: 'vless',
         port: randomPort(),
         settings,
-        streamSettings: realityStream('tcp'),
+        streamSettings: realityStream('xhttp'),
       };
     },
   },
