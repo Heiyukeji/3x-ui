@@ -24,7 +24,7 @@ jobs:
         uses: docker/metadata-action@v6
         with:
           images: |
-            ghcr.io/heiyukeji/3x-ui
+            ghcr.io/Heiyukeji/3x-ui
           tags: |
             type=ref,event=branch
             type=ref,event=tag
@@ -40,8 +40,8 @@ jobs:
         uses: docker/login-action@v4
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ secrets.GHCR_USERNAME }}
+          password: ${{ secrets.GHCR_TOKEN }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v7
