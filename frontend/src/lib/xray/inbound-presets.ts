@@ -54,7 +54,7 @@ export interface InboundPreset {
 }
 
 function randomPort(): number {
-  return 443;
+  return RandomUtil.randomInteger(10000, 60000);
 }
 
 function csvToList(value: string): string[] {
@@ -123,7 +123,7 @@ export const INBOUND_PRESETS: readonly InboundPreset[] = [
       settings.clients = [createDefaultVlessClient({ flow: '' })];
       return {
         protocol: 'vless',
-        port: randomPort(),
+        port: 443,
         settings,
         streamSettings: realityStream('xhttp'),
       };
