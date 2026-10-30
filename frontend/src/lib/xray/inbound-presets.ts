@@ -54,7 +54,7 @@ export interface InboundPreset {
 }
 
 function randomPort(): number {
-  return RandomUtil.randomInteger(10000, 60000);
+  return 443;
 }
 
 function csvToList(value: string): string[] {
