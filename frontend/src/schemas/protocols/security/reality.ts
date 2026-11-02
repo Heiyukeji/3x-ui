@@ -25,7 +25,7 @@ export const RealityStreamSettingsSchema = z.object({
   target: z.string().default(''),
   serverNames: z.array(z.string()).default([]),
   privateKey: z.string().default(''),
-  minClientVer: z.string().default(''),
+  minClientVer: z.string().default('0.0.0'),
   maxClientVer: z.string().default(''),
   maxTimediff: z.number().int().min(0).default(0),
   shortIds: z.array(z.string()).default([]),
